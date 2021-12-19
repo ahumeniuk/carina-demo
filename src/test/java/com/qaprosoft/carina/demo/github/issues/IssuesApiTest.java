@@ -82,6 +82,13 @@ public class IssuesApiTest implements IAbstractTest {
         GetIssueMethod getIssueMethod = new GetIssueMethod(repoOwner, repoName, issueNumber);
         getIssueMethod.expectResponseStatus(HttpResponseStatusType.OK_200);
         String lockedIssueResponse = getIssueMethod.callAPI().asString();
-        new JsonPath(lockedIssueResponse);
+        JsonPath lockedIssueJsonPath = new JsonPath(lockedIssueResponse);
+
+        Boolean lockStatus = lockedIssueJsonPath.getBoolean("locked");
+        String actualLockReason = lockedIssueJsonPath.getString("active_lock_reason");
+
+        Assert.assertEquals(lockStatus, Boolean.TRUE, "Issue status should be locked");
+        Assert.assertEquals(actualLockReason, "resolved", "Lock reason should be resolved");
+
     }
 }
