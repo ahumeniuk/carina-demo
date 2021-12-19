@@ -17,6 +17,7 @@ package com.qaprosoft.carina.demo;
 
 import java.lang.invoke.MethodHandles;
 
+import com.qaprosoft.carina.core.foundation.utils.R;
 import org.skyscreamer.jsonassert.JSONCompareMode;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -39,7 +40,6 @@ import com.qaprosoft.carina.demo.api.PostUserMethod;
  */
 public class APISampleTest implements IAbstractTest {
     private static final Logger LOGGER = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
-
 
     @Test()
     @MethodOwner(owner = "qpsdemo")

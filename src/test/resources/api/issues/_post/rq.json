@@ -1,0 +1,4 @@
+{
+ <#if title??> "title": "${title}",</#if>
+ "body": "${body}"
+}
